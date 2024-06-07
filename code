@@ -1,0 +1,574 @@
+#include<iostream>
+#include<string>
+#include<fstream>
+#include<iomanip>
+#include<ctime>
+
+using namespace std;
+//we have used classes 
+class vehicle{
+    public:
+    
+    string name;
+    int number;
+    int model_no;
+//parameterized constructors
+    vehicle(string n,int num,int model){
+
+        name = n;
+        number = num;
+        model_no = model;
+    }
+//display function
+    void display(){
+        
+        cout << "-------------------------------------------------" << endl;
+        cout<<"Name: " << name<<endl;
+        cout<<"Number: " << number<<endl;
+        cout<<"Model no: " << model_no<<endl;
+        cout << "-------------------------------------------------" << endl;
+    }
+  
+};
+//toll rates
+void toll_Rates() {
+
+    int option;
+    cout << "-------------------------------------------------" << endl;
+    cout<<" Enter The Vehicle Type "<<endl;
+    cout<<" 1. BIKE "<<endl;
+    cout<<" 2. LTV "<<endl;
+    cout<<" 3. HTV "<<endl;
+    cin>>option;
+    cout << "-------------------------------------------------" << endl;
+    if(option == 1){ 
+        cout << "NOT ALLOWED" << endl;
+        cout << "BACKOFF YOU NIGGA" << endl;
+        }
+    else if(option == 2){
+    cout << "-------------------------------------------------" << endl;
+    cout <<"---RATE---\n---250Rs---" << endl;
+    cout <<"Toll 1: " << endl;
+    cout <<"---RATE---\n---250Rs---" << endl;
+    cout <<"Toll 2: " << endl;
+    cout <<"---RATE---\n---250Rs---" << endl;
+    cout <<"Toll 3: " << endl;
+    cout <<"---RATE---\n---250Rs---" << endl;
+    cout <<"Toll 4: " << endl;
+    cout <<"-------------------------------------------------" << endl;
+    }
+   
+    else if(option == 3){
+    
+    cout << "-------------------------------------------------" << endl;
+    cout << "Toll 1: " << endl;
+    cout << "---RATE---\n---500Rs---" << endl;
+    cout << "Toll 2: " << endl;
+    cout << "---RATE---\n---500Rs---" << endl;
+    cout << "Toll 3: " << endl;
+    cout << "---RATE---\n---500Rs---" << endl;
+    cout << "Toll 4: " << endl;
+    cout << "---RATE---\n---500Rs---" << endl;
+    cout << "-------------------------------------------------" << endl;
+    }
+    else{
+        cout<<"INVALID OPTION"<<endl;
+    }
+}
+//used file handleing and c time library
+    void enter_toll() {
+    ofstream outFile("Enter.txt", ios::app);
+    if (!outFile) {
+        cout << "Error opening file!" << endl;
+        return;
+    }
+    time_t apple;
+    apple = time(0);
+    time(&apple);
+    char* tm = ctime(&apple);
+
+    cout << " ------------------------------------------------------------- " << endl;
+    cout << " ------ WELCOME TO TOLLS ------" << endl;
+    cout << " ------------------------------------------------------------- " << endl;
+    cout << " ------ WITHOUT M-TAG ------ " << endl;
+    cout << " ------------------------------------------------------------- " << endl;
+    
+    int option;
+    cout<<"Enter The Type of Vehicle"<<endl;
+    cout<<"1. LTV"<<endl;
+    cout<<"2. HTV"<<endl;
+    cout<<"3. Two Wheeler "<<endl;
+    cin>>option;
+    if(option == 1){ 
+    
+    string name;
+    cout << "Enter the Name of the car: " << endl;
+    cin >> name;
+    
+    int num;
+    cout << "Enter the number of car: " << endl;
+    cin >> num;
+
+    int model;
+    cout << "Enter the model year of car: " << endl;
+    cin >> model;
+
+    int no_tollenter;
+    cout << "Enter the Toll No Car Entered: " << endl;
+    cin >> no_tollenter;
+   
+
+   outFile<<"------------------------------------------------------------------------"<<endl;
+   outFile<<endl<<"Car No: "<<num<<endl<<"Model: "<<model<<endl<<"Name: "<<name<<endl;
+   outFile<<tm;
+   outFile<<"------------------------------------------------------------------------"<<endl; 
+    //vehicle newvehicle(name, num, model);
+
+    //newvehicle.data_file(outFile);
+    
+        if (no_tollenter == 1) {
+        
+        cout << "---- RECEIPT ----" << endl;
+        cout << "--- TOTAL 250 Rs ---" << endl;
+        cout << "---- WELCOME ----" << endl;
+        cout << "---- MOTORWAY POLICE ----" << endl;
+        }else if(no_tollenter == 2) {
+        cout << "---- RECEIPT ----" << endl;
+        cout << "--- TOTAL 250 Rs ---" << endl;
+        cout << "---- WELCOME ----" << endl;
+        cout << "---- MOTORWAY POLICE ----" << endl;
+        }else if(no_tollenter == 3){
+        cout << "---- RECEIPT ----" << endl;
+        cout << "--- TOTAL 250 Rs ---" << endl;
+        cout << "---- WELCOME ----" << endl;
+        cout << "---- MOTORWAY POLICE ----" << endl;
+        }else if(no_tollenter == 4){
+        cout << "---- RECEIPT ----" << endl;
+        cout << "--- TOTAL 250 Rs ---" << endl;
+        cout << "---- WELCOME ----" << endl;
+        cout << "---- MOTORWAY POLICE ----" << endl;
+        }
+        else {
+        cout << "---- CAR PASSED NO TOLL ----" << endl;
+        }
+    }
+    else if(option == 2){
+    
+    string name;
+    cout << "Enter the Name of the Truck/Bus: " << endl;
+    cin >> name;
+    
+    int num;
+    cout << "Enter the number of Truck/Bus: " << endl;
+    cin >> num;
+
+    int model;
+    cout << "Enter the model year of Truck/Bus: " << endl;
+    cin >> model;
+
+    int no_tollenter;
+    cout << "Enter the Toll No Truck/Bus Entered: " << endl;
+    cin >> no_tollenter;
+//the output for file
+   outFile<<"------------------------------------------------------------------------"<<endl;
+   outFile<<endl<<"Truck/Bus No: "<<num<<endl<<"Model: "<<model<<endl<<"Name: "<<name<<endl;
+   outFile<<tm;
+   outFile<<"------------------------------------------------------------------------"<<endl;
+    
+    //vehicle newvehicle(name, num, model);
+   
+   
+        if (no_tollenter == 1) {
+        
+        cout << "---- RECEIPT ----" << endl;
+        cout << "--- TOTAL 500 Rs ---" << endl;
+        cout << "---- WELCOME ----" << endl;
+        cout << "---- MOTORWAY POLICE ----" << endl;
+        }else if(no_tollenter == 2) {
+        cout << "---- RECEIPT ----" << endl;
+        cout << "--- TOTAL 500 Rs ---" << endl;
+        cout << "---- WELCOME ----" << endl;
+        cout << "---- MOTORWAY POLICE ----" << endl;
+        }else if(no_tollenter == 3){
+        cout << "---- RECEIPT ----" << endl;
+        cout << "--- TOTAL 500 Rs ---" << endl;
+        cout << "---- WELCOME ----" << endl;
+        cout << "---- MOTORWAY POLICE ----" << endl;
+        }else if(no_tollenter == 4){
+        cout << "---- RECEIPT ----" << endl;
+        cout << "--- TOTAL 500 Rs ---" << endl;
+        cout << "---- WELCOME ----" << endl;
+        cout << "---- MOTORWAY POLICE ----" << endl;
+        }
+        else {
+        cout << "---- CAR PASSED NO TOLL ----" << endl;
+        }
+    }
+    else if(option == 3){
+         cout<<"NO BIKE ALLOWED"<<endl;
+         cout<<"BACKOFF NIGGA"<<endl;
+    }
+    else{
+        cout<<"Invalid Input"<<endl;
+    }
+    cout << "--------------------------------------------------------------" << endl;
+}
+
+//exit function
+void exit_toll() {
+    
+    ofstream outFile("Exit.txt", ios::app);
+    if (!outFile) {
+        cerr << "Error opening file!" << endl;
+        return;
+    }
+    //time function
+time_t apple;
+    apple = time(0);
+    time(&apple);
+    char* tm = ctime(&apple);
+
+    cout << " ------------------------------------------------------------- " << endl;
+    cout << " ------ EXIT TO TOLLS ------" << endl;
+    cout << " ------------------------------------------------------------- " << endl;
+    cout << " ------ WITHOUT M-TAG ------ " << endl;
+    cout << " ------------------------------------------------------------- " << endl;
+
+    int option;
+    cout<<"Enter The Type of Vehicle"<<endl;
+    cout<<"1. LTV"<<endl;
+    cout<<"2. HTV"<<endl;
+    cin>>option;
+
+    if(option == 1){ 
+    
+    string name;
+    cout << "Enter the Name of the car: " << endl;
+    cin >> name;
+    
+    int num;
+    cout << "Enter the number of car: " << endl;
+    cin >> num;
+
+    int model;
+    cout << "Enter the model year of car: " << endl;
+    cin >> model;
+    
+    int no_tollexit;
+    cout << "Enter the Toll No Car Entered: " << endl;
+    cin >> no_tollexit;
+
+   //to write data on file
+   outFile<<"------------------------------------------------------------------------"<<endl;
+   outFile<<endl<<"Car No: "<<num<<endl<<"Model: "<<model<<endl<<"Name: "<<name<<endl;
+   outFile<<tm;
+   outFile<<"------------------------------------------------------------------------"<<endl;
+    //vehicle newvehicle(name, num, model);
+    
+    
+    if (no_tollexit == 1) {
+        
+        cout << "---- RECEIPT ----" << endl;
+        cout << "--- TOTAL 250 Rs ---" << endl;
+        cout << "---- GOODBYE ----" << endl;
+        cout << "---- MOTORWAY POLICE ----" << endl;
+        }else if(no_tollexit == 2) {
+        cout << "---- RECEIPT ----" << endl;
+        cout << "--- TOTAL 250 Rs ---" << endl;
+        cout << "---- GOODBYE ----" << endl;
+        cout << "---- MOTORWAY POLICE ----" << endl;
+        }else if(no_tollexit == 3){
+        cout << "---- RECEIPT ----" << endl;
+        cout << "--- TOTAL 250 Rs ---" << endl;
+        cout << "---- GOODBYE ----" << endl;
+        cout << "---- MOTORWAY POLICE ----" << endl;
+        }else if(no_tollexit == 4){
+        cout << "---- RECEIPT ----" << endl;
+        cout << "--- TOTAL 250 Rs ---" << endl;
+        cout << "---- GOODBYE ----" << endl;
+        cout << "---- MOTORWAY POLICE ----" << endl;
+        }
+        else {
+        cout << "---- CAR PASSED NO TOLL ----" << endl;
+        }
+    }
+    else if(option == 2){
+    
+    string name;
+    cout << "Enter the Name of the Truck/Bus: " << endl;
+    cin >> name;
+    
+    int num;
+    cout << "Enter the number of Truck/Bus: " << endl;
+    cin >> num;
+
+    int model;
+    cout << "Enter the model year of Truck/Bus: " << endl;
+    cin >> model;
+
+    int no_tollexit;
+    cout << "Enter the Toll No Truck/Bus Entered: " << endl;
+    cin >> no_tollexit;
+   
+   outFile<<"------------------------------------------------------------------------"<<endl;
+   outFile<<endl<<"Car No: "<<num<<endl<<"Model: "<<model<<endl<<"Name: "<<name<<endl;
+   outFile<<tm;
+   outFile<<"------------------------------------------------------------------------"<<endl;
+    
+    //vehicle newvehicle(name, num, model);
+    //newvehicle.data_file(outFile);
+
+   
+        if (no_tollexit == 1) {
+        
+        cout << "---- RECEIPT ----" << endl;
+        cout << "--- TOTAL 500 Rs ---" << endl;
+        cout << "---- WELCOME ----" << endl;
+        cout << "---- MOTORWAY POLICE ----" << endl;
+        }else if(no_tollexit == 2) {
+        cout << "---- RECEIPT ----" << endl;
+        cout << "--- TOTAL 500 Rs ---" << endl;
+        cout << "---- WELCOME ----" << endl;
+        cout << "---- MOTORWAY POLICE ----" << endl;
+        }else if(no_tollexit == 3){
+        cout << "---- RECEIPT ----" << endl;
+        cout << "--- TOTAL 500 Rs ---" << endl;
+        cout << "---- WELCOME ----" << endl;
+        cout << "---- MOTORWAY POLICE ----" << endl;
+        }else if(no_tollexit == 4){
+        cout << "---- RECEIPT ----" << endl;
+        cout << "--- TOTAL 500 Rs ---" << endl;
+        cout << "---- WELCOME ----" << endl;
+        cout << "---- MOTORWAY POLICE ----" << endl;
+        }
+        else {
+        cout << "---- TRUCK/BUS PASSED NO TOLL ----" << endl;
+        }
+    }
+    else{
+        cout<<"Invalid Input"<<endl;
+    }
+    cout << "--------------------------------------------------------------" << endl;
+}
+    
+    // forumula s=vt
+void time_cal(){
+    cout << "--------------------------------------------------------------" << endl;
+    cout<<"MOTERWAY POLICE TIME CALCULATOR"<<endl;
+    int distance;
+    cout<<"Enter the distance in Km"<<endl;
+    cin>>distance;
+    
+    int speed;
+    cout<<"Enter the speed in KMPH"<<endl;
+    cin>>speed; 
+    
+    int time;
+    time = distance/speed;
+    cout<<" The Car Will Take "<<setw(1)<<time<<setw(1)<<" hours"<<setw(1)<<" To cover "<<setw(1)<<distance<<setw(1)<<" Kmph"
+    <<" At speed of "<<setw(1)<<speed<<" Km"<<endl;
+    cout << "--------------------------------------------------------------" << endl;
+}
+
+//we used this only for intput string
+void bug_report() {
+    cout << "---------------------------------------------------------------" << endl;
+    cout << setw(40)<<"MOTORWAY POLICE BUG REPORT" << endl;
+    cout << "DEVELOPER @MOFFICIALVIBER AND HIS TEAM THE BLOODLINE WILL TAKE A LOOK AT YOUR REPORT" << endl;
+    cout << "---------------------------------------------------------------" << endl;
+    string report;
+    cout << "ENTER YOUR PROBLEM: " << endl;
+    cin.ignore();
+    getline(cin, report);
+    cout << "---------------------------------------------------------------" << endl;
+    cout << "THANK YOU FOR YOUR REPORT" << endl;
+    cout <<setw(40)<< "--- THE BLOODLINE ---" << endl;
+}
+//t    
+void datareveal() {
+    ifstream enterFile("Enter.txt");
+    ifstream exitFile("Exit.txt");
+
+    if (!enterFile || !exitFile) {
+        cerr << "Error opening file!" << endl;
+        return;
+    }
+
+    cout << "---------------------------------------------------------------" << endl;
+    cout <<setw(35)<< "MOTORWAY POLICE DATA REVEAL" << endl;
+    cout << "---------------------------------------------------------------" << endl;
+    int choice;
+    cout << "Enter 1 for Enterance Data and 2 for Exit Data: ";
+    cin >> choice;
+    if (choice == 1){
+        cout <<setw(35)<< "---- ENTERED VEHICLES ----" << endl;
+        string line;
+        while (getline(enterFile, line)) {
+            cout << line << endl;
+        }
+    }
+    else if (choice == 2){
+        cout <<setw(35)<< "---- EXITED VEHICLES ----" << endl;
+        string line;
+        while (getline(exitFile, line)) {
+            cout << line << endl;
+        }
+    }
+    enterFile.close(); 
+    exitFile.close(); 
+}
+
+void dataDisplay() {
+    // Define an array to store data
+    string emp[10]; // Assuming 10 entries for demonstration purposes
+
+    // Employee names
+    emp[0] = "KHANAM";
+    emp[1] = "FURQAN";
+    emp[2] = "JUNAID";
+    emp[3] = "ALI AKBER";
+    emp[4] = "HOORIA";
+    emp[5] = "UMER DON";
+    emp[6] = "HASSAN";
+    emp[7] = "JOHN";
+    emp[8] = "FATIMA";
+    emp[9] = "ZUBAIR";
+
+    // Define an array of pointers to strings
+    string* empPtr[10];
+
+    // Assign pointers to the addresses of strings
+    for (int i = 0; i < 10; i++) {
+        empPtr[i] = &emp[i];
+    }
+
+    // ARRAY KO DISPLAY KARWANE KE LIE
+    cout << "---------------------------------------------------------" << endl;
+    cout << setw(35) << "EMPLOYEES" << endl;
+    cout << "--------------------------------------------------------" << endl;
+
+    // we are printing strings using pointers
+    for (int i = 0; i < 10; i++) {
+        cout << *empPtr[i] << endl;
+    }
+}
+
+
+
+int main(){
+
+    while (true)
+    {
+        
+        cout << "--------------------------------------------------------------" << endl;
+        cout << "--- MAIN MENU OF TOLLS ---" << endl;
+        cout << "--------------------------------------------------------------" << endl;
+        cout << "0. FOR BUG REPORT"<<endl;
+        cout << "1. ENTER UNREGISTERED VEHICLE" << endl;
+        cout << "2. EXIT UNREGISTERED VEHICLE" << endl;
+        cout << "3. M-TAG REGISTERED VEHICLE" << endl;
+        cout << "4. TOLLS RATES" << endl;
+        cout << "5. TIME CALCULATOR" << endl;
+        cout << "6. DATA FILE SHOW" <<endl;
+        cout << "7. EMPLOYEES DATA " << endl;
+        cout << "8. EXIT " << endl;
+        cout << "--------------------------------------------------------------" << endl;
+
+        int choice;
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+    
+
+            if (choice == 1) {
+            enter_toll();
+            cout << "--COPYRIGHT 2024--" << endl;
+            } 
+            else if (choice == 2) {
+            exit_toll();
+            cout << "--COPYRIGHT 2024--" << endl;
+            }
+            else if(choice == 3){
+              
+            vehicle a("Toyota ALTIS", 456, 2018);
+            vehicle b("Honda CIVIC", 789, 2020);
+            vehicle c("Ford Mustang GT", 101, 2005);
+            vehicle d("Chevrolet Camaro", 202, 2017);
+            vehicle e("Nissan GTR", 303, 2019);
+            vehicle f("Audi R8", 404, 2016);
+            vehicle g("Mercedes AMG SL2", 505, 2021);
+            vehicle h("Lexus LP 600", 606, 2014);
+            vehicle i("Tesla S", 707, 2022);
+            vehicle j("BMW i8", 808, 2023);
+            vehicle k("Volkswagen", 909, 2017);
+            vehicle l("Hyundai Sonata", 1010, 2020);
+            vehicle m("Kia Picanto", 1111, 2019);
+            vehicle n("Subaru", 1212, 2018);
+            vehicle o("Mazda RX7", 1313, 2024);
+            vehicle p("Volvo", 1414, 2021);
+            vehicle q("Jaguar", 1515, 2019);
+            vehicle r("Porsche CARRERA GT", 1616, 2014);
+            vehicle s("Ferrari LaFerrari", 1717, 2023);
+            vehicle t("Lamborghini Aventador LP-450 Spyder", 1818, 2023);
+            vehicle u("Bugatti Veyron", 1919, 2022);
+
+            cout << "---- REGISTERED CARS ----" << endl;
+            cout << "--------------------------------------------------------------" << endl;
+
+            a.display();
+            b.display();
+            c.display();
+            d.display();
+            e.display();
+            f.display();
+            g.display();
+            h.display();
+            i.display();
+            j.display();
+            k.display();
+            l.display();
+            m.display();
+            n.display();
+            o.display();
+            p.display();
+            q.display();
+            r.display();
+            s.display();
+            t.display();
+            u.display();
+
+            cout << "--------------------------------------------------------------" << endl;
+            cout << "--COPYRIGHT 2024--" << endl;
+            }
+
+            else if (choice == 4) {
+            toll_Rates();
+            cout << "--COPYRIGHT 2024--" << endl;
+            }
+            else if(choice == 5){  
+            time_cal();
+            cout << "--COPYRIGHT 2024--" << endl;
+            }    
+
+            else if (choice == 6) {
+            datareveal();
+            cout << "--COPYRIGHT 2024--" << endl;
+            } 
+            else if (choice==0){
+                bug_report();
+                cout << "--COPYRIGHT 2024--" << endl;
+            }
+            else if (choice == 7) {
+            dataDisplay();
+            cout << "--COPYRIGHT 2024--" << endl;
+            }
+            else if (choice == 8){
+                break;
+            }
+            else {
+            cout << "Invalid choice. Please try again." << endl;
+            }
+    }   
+    system("pause>0");
+    return 0;
+}
